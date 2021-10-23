@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-card
     :loading="loading"
     class="mx-auto my-12"
@@ -14,42 +15,73 @@
 
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      src="https://i2.wp.com/www.dailycal.org/assets/uploads/2016/11/patz_mikaelaRaphael_staff-900x580.jpg"
     ></v-img>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title>CROSSROADS</v-card-title>
 
     <v-card-text>
       <v-row
         align="center"
         class="mx-0"
+        style="margin-bottom: -5px;"
       >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
+        <v-chip-group
+          column
+        >
+          <v-chip
+          class="mr-2"
+          color="red"
+          text-color="white"
+          ><div class="blink" style="height: 10px; width: 10px; border-radius: 50%; background-color: white;"></div>
+          <div class="amber--text ml-1">
+            4.5 (54)
+          </div>
+          <v-rating
+            :value="4.5"
+            color="amber"
+            dense
+            half-increments
+            readonly
+            size="14"
+            class="ml-1"
+          ></v-rating>
+          </v-chip>
+<v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs"
+          v-on="on"
+          color="var(--main-yellow)">10 friends</v-chip>
+      </template>
 
-        <div class="grey--text ms-4">
-          4.5 (413)
-        </div>
+      <v-card>
+        <v-card-title class="grey lighten-2" style="font-family: var(--main-font);">
+          Friends at Crossroads
+        </v-card-title>
+
+        <v-card-text>
+          <v-banner
+            single-line
+            @click:icon="alert"
+          >
+            <v-avatar><img
+              src="https://cdn.vuetifyjs.com/images/john.jpg"
+              alt="John"
+            ></v-avatar>
+            Tony Xin
+            
+            <v-spacer></v-spacer>
+            <p>What's up dawg</p>
+          </v-banner>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+        </v-chip-group>
       </v-row>
 
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div>
-
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
-    <v-card-text>
       <v-chip-group
         v-model="selection"
         active-class="deep-purple accent-4 white--text"
@@ -59,18 +91,29 @@
         <v-chip>5:30 PM - 9:00 PM</v-chip>
       </v-chip-group>
     </v-card-text>
-
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Reserve
-      </v-btn>
-    </v-card-actions>
   </v-card>
+
+  
+  </div>
 </template>
+
+<style scoped>
+  .blink {
+    animation: blink-animation 1s steps(30, start) infinite;
+    -webkit-animation: blink-animation 1s steps(30, start) infinite;
+    transition: 0.1s all;
+  }
+  @keyframes blink-animation {
+    to {
+      opacity: 0.0;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      opacity: 1.0;
+    }
+  }
+</style>
 
 <script>
 
@@ -90,6 +133,7 @@ export default {
 
   data() {
     return {
+      dialog: false,
     }
   },
 

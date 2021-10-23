@@ -1,15 +1,14 @@
 <template>
   <v-app id="app">
-    <v-app-bar
-      color="blue"
-      dark
+    <div
+      style="background-color: #90ACE0; color: white; height: 50px; display: flex; justify-content: flex-start;"
       v-if="$route.name != 'DiningDashboard'"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon color="white" class="mt-1" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>DineRight</v-toolbar-title>
+      <v-toolbar-title class="mt-2">DineRight</v-toolbar-title>
 
-    </v-app-bar>
+    </div>
 
     <v-navigation-drawer
       v-model="drawer"
@@ -39,26 +38,31 @@
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css? family=Oxygen:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css? family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --main-font: 'Poppins';
+  --main-blue: #90ACE0;
+  --main-yellow: #FCD47C;
+}
+
+.mainfont {
+  font-family: var(--main-font);
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--main-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 
 </style>
 
