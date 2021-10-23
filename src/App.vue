@@ -3,10 +3,11 @@
     <v-app-bar
       color="blue"
       dark
+      v-if="$route.name != 'DiningDashboard'"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>My files</v-toolbar-title>
+      <v-toolbar-title>DineRight</v-toolbar-title>
 
     </v-app-bar>
 
@@ -58,6 +59,7 @@
     }
   }
 }
+
 </style>
 
 <script>
