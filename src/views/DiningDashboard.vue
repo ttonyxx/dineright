@@ -17,7 +17,7 @@ export default {
   },
 
   watch: {
-      
+
   },
 
   data() {

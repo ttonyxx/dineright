@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <v-app-bar
       color="blue"
       dark
@@ -34,7 +34,7 @@
     </v-navigation-drawer>
 
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <style lang="scss">
