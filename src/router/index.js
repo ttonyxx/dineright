@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import StudentSignIn from '../views/StudentSignIn.vue'
 import StudentDashboard from '../views/StudentDashboard.vue'
+import DiningDashboard from '../views/DiningDashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/student',
     name: 'StudentDashboard',
     component: StudentDashboard
+  },
+  {
+    path: '/dining',
+    name: 'DiningDashboard',
+    component: DiningDashboard
   },
   {
     path: '/about',

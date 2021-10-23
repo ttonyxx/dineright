@@ -25,11 +25,7 @@
           active-class="deep-purple--text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-title><router-link to="/">Home</router-link></v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title><router-link to="/student">StudentDashboard</router-link></v-list-item-title>
+            <v-list-item-title><router-link to="/student">Dashboard</router-link></v-list-item-title>
           </v-list-item>
 
 
