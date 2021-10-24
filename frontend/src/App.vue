@@ -51,6 +51,7 @@
   --main-font: 'Poppins';
   --main-blue: #90ACE0;
   --main-yellow: #FCD47C;
+  --main-gray: #F9F9F9;
 }
 
 .mainfont {
