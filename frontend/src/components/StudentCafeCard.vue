@@ -101,6 +101,7 @@
               </v-card-text>
             </v-card>
           </v-dialog>
+          
         </v-chip-group>
       </v-row>
 
@@ -117,20 +118,44 @@
         Top menu items
       </v-row>
       <v-row class="pl-3 pb-4 pt-2" style="height: 150px; overflow: scroll;">
-          <div class="menu-item">
-            Teriyaki<br>
-            <v-img style="display: inline-block; border-radius: 5px;" height="80px" width="80px" src="@/assets/terryaki.jpg"></v-img>
-          </div>
 
-          <div class="menu-item">
-            Macaroni<br>
-            <v-img style="display: inline-block; border-radius: 5px;" height="80px" width="80px" src="https://i.pinimg.com/originals/6d/f8/c6/6df8c6eae5371ebb2d583da21214b8f0.jpg"></v-img>
+          <v-dialog
+            v-model="dialogFood"
+            width="500"
+            v-for="(food, i) in cafeteria.c.foods"
+            :key="i"
+          >
+            <template v-slot:activator="{ on, attrs }">
+<div v-bind="attrs"
+                v-on="on" class="menu-item">
+            {{food.name}}<br>
+            <v-img style="display: inline-block; border-radius: 5px;" height="80px" width="80px" :src="food.imageUrl"></v-img>
           </div>
+            </template>
 
-          <div class="menu-item">
-            Tacos<br>
-            <v-img style="display: inline-block; border-radius: 5px;" height="80px" width="80px" src="https://i.pinimg.com/originals/c4/9b/1e/c49b1e57b208b5d4a0790eaeab0fc285.jpg"></v-img>
-          </div>
+            <v-card>
+                <v-card-title
+                  class="grey lighten-2"
+                  style="font-family: var(--main-font)"
+                >
+                  <v-chip
+                    color="var(--main-blue)"
+                    style="font-size: 18px; margin-right: 5px"
+                    >Nutritional Facts</v-chip
+                  >
+                </v-card-title>
+
+                <v-card-text>
+                  <v-list style="overflow: hidden">
+                    <template v-for="(nutritionalfacts, i) in 1">
+                      <v-divider v-if="i !== 0" :key="i"></v-divider>
+                      <Nutrition :key="nutritionalfacts.uid" :nutritionalfacts="nutritionalfacts" />
+                    </template>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+          </v-dialog>
+
       </v-row>
     </v-card-text>
   </v-card>
@@ -169,11 +194,13 @@
 
 <script>
 import StudentListItem from '@/components/StudentListItem.vue';
+import Nutrition from './Nutrition.vue';
 
 export default {
   name: 'StudentCafeCard',
   components: {
-      StudentListItem
+      StudentListItem,
+    Nutrition
   },
 
   created() {
@@ -190,7 +217,7 @@ export default {
   data() {
     return {
       dialog: false,
-      
+      dialogFood: false
     }
   },
 
