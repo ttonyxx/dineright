@@ -1,0 +1,32 @@
+const serverOrigin = 'http://localhost:8080'
+
+export function http(method, url, body) {
+  if (!url.includes('http')) {
+    url = serverOrigin + url
+  }
+
+  return window.fetch(url, {
+    method,
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body
+  }).then(res => res.json())
+}
+
+export function get(url) {
+  return http('GET', url, undefined)
+}
+
+export function post(url, json) {
+  return http('POST', url, JSON.stringify(json))
+}
+
+export function put(url, json) {
+  return http('PUT', url, JSON.stringify(json))
+}
+
+export function httpDelete(url) {
+  return http('DELETE', url, undefined)
+}

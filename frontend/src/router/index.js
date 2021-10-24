@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import StudentSignIn from '../views/StudentSignIn.vue'
 import StudentDashboard from '../views/StudentDashboard.vue'
 import DiningDashboard from '../views/DiningDashboard.vue'
+import StudentSignUp from '../views/StudentSignUp.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,10 @@ const routes = [
     path: '/dining',
     name: 'DiningDashboard',
     component: DiningDashboard
+  },
+  {
+    path: '/studentsignup',
+    component: StudentSignUp
   },
   {
     path: '/about',
