@@ -1,7 +1,6 @@
 <template>
   <div>
   <v-card
-    :loading="loading"
     class="mx-auto mt-4"
     max-width="374"
     style="overflow: hidden;"
@@ -17,9 +16,31 @@
     <v-img
       height="250"
       :src="cafeteria.c.photo"
+      @click="$router.push('/crossroads')"
     ></v-img>
+    
 
-    <v-card-title>{{cafeteria.c.name}} <v-chip class="ml-2" color="green lighten-3">{{ cafeteria.c.score }}</v-chip></v-card-title>
+        <v-tooltip top v-if="cafeteria.c.recommended">
+      <template v-slot:activator="{ on, attrs }">
+          <div v-bind="attrs"
+          v-on="on" style="position: absolute; top: 10px; right: 10px; background-color: #FCD47C; border-radius: 50%; font-size: 3px;"><v-icon color="white">mdi-star</v-icon></div>
+
+      </template>
+      <span>DineRight recommended</span>
+    </v-tooltip>
+      
+        <v-card-title>{{cafeteria.c.name}}
+
+
+          <v-tooltip top>
+      <template v-slot:activator="{ on, attrs }">
+        <v-chip class="ml-2" color="green lighten-3"
+          v-bind="attrs"
+          v-on="on"> {{ cafeteria.c.score }}</v-chip>
+      </template>
+      <span>DineRight generated score</span>
+    </v-tooltip>
+         </v-card-title>
 
     <v-card-text>
       <v-row
@@ -56,17 +77,17 @@
             <template v-slot:activator="{ on, attrs }">
                 <v-chip v-bind="attrs"
                 v-on="on"
-                color="var(--main-yellow)">{{cafeteria.c.students.length}} friends</v-chip>
+                color="var(--main-yellow)">{{cafeteria.c.friends.length}} friends</v-chip>
             </template>
 
             <v-card>
               <v-card-title class="grey lighten-2" style="font-family: var(--main-font);">
-                <v-chip color="var(--main-yellow)" style="font-size: 18px; margin-right: 5px;">{{cafeteria.c.students.length}} friends</v-chip> at Crossroads
+                <v-chip color="var(--main-yellow)" style="font-size: 18px; margin-right: 5px;">{{cafeteria.c.friends.length}} friends</v-chip> at Crossroads
               </v-card-title>
 
               <v-card-text>
                 <v-list style="overflow: hidden;">
-                  <template v-for="(student, i) in cafeteria.c.students">
+                  <template v-for="(student, i) in cafeteria.c.friends">
                   <v-divider
                     v-if="i !== 0"
                     :key="i"
