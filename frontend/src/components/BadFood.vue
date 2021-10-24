@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-app style = "background-color : var(--main-gray); margin-left: -200px; max-height: 50vh;">
+    <v-app style = "background-color : var(--main-gray); margin-left: -200px; ">
       <v-card max-width="1000" class="mx-auto">
 
 
         <v-app-bar dark color=#15284B>
-          <v-toolbar-title>Top Food Items</v-toolbar-title>
+          <v-toolbar-title>Worst Food Items</v-toolbar-title>
 
           <v-spacer></v-spacer>
 
@@ -46,7 +46,7 @@
 <script>
 
 export default {
-  name: 'TestCard',
+  name: 'BadFood',
 
   props: {
     items: { type: Object, required: true }

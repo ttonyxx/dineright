@@ -12,7 +12,7 @@
             Revenue
         </v-card-title-text>
         <v-card-text class = "ml-10" style = "font-size: 30px; color: var(--main-yellow);">
-            $1945
+            $23,012
         </v-card-text>
     </v-card>
 <v-card width = "360px" height = "120px" align="center" class = "rounded-lg">
@@ -21,7 +21,7 @@
             Expenses
         </v-card-title-text>
         <v-card-text class = "ml-10" style = "font-size: 30px; color: var(--main-yellow);">
-            $1945
+            $2918
         </v-card-text>
     </v-card>
     <v-card width = "360px" height = "120px" align="center" class = "rounded-lg">
@@ -30,7 +30,7 @@
             New Visitors
         </v-card-title-text>
         <v-card-text class = "ml-10" style = "font-size: 30px; color: var(--main-yellow);">
-            $1945
+            149
         </v-card-text>
     </v-card>
     <v-card width = "360px" height = "120px" align="center" class = "rounded-lg">
@@ -39,7 +39,7 @@
             Avg. Time Stayed
         </v-card-title-text>
         <v-card-text class = "ml-10" style = "font-size: 30px; color: var(--main-yellow);">
-            $1945
+            19m 13s
         </v-card-text>
     </v-card>
 
