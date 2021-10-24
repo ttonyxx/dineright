@@ -1,7 +1,12 @@
 <template>
   <v-container class="studentdashboard">
 
-      <h1 style="font-size: 30px;">Welcome Tony,</h1>
+      <v-row class="pa-2">
+      <h1 style="font-size: 22px;">Welcome Tony,</h1>
+      <v-spacer></v-spacer>
+        <v-chip class="mr-1">5 swipes</v-chip>
+        <v-chip>$159.20</v-chip>
+      </v-row>
 
       <StudentCafeCard v-for="(c, i) in cafeterias" :key="i" :cafeteria={c}></StudentCafeCard>
   

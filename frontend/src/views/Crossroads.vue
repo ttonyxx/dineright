@@ -1,5 +1,5 @@
 <template>
-  <div class="crossroads">
+  <div class="crossroads pb-6">
 
     <v-img :src="cafeteria.photo" max-height="100"
     gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"
@@ -16,7 +16,7 @@
         </v-icon> Real-Time Stats</h1>
         
         <div id="stats">
-            <h1>DineRight Score: <v-chip color="green lighten-3"> {{ cafeteria.score }}</v-chip></h1>
+            <h1> Score: <v-chip color="green lighten-3"> {{ cafeteria.score }}</v-chip></h1>
 
             <h1>People: <v-chip>{{ cafeteria.students.length }} <v-icon>mdi-account</v-icon></v-chip>
             
@@ -89,7 +89,146 @@
         color="#2C3E50"
         >
         mdi-message-draw
-        </v-icon> Reviews</h1>
+        </v-icon> Reviews 
+        
+         <v-dialog
+            v-model="dialogReview"
+            width="500"
+          >
+            <template v-slot:activator="{ on, attrs }">
+                <v-icon v-bind="attrs"
+                v-on="on"
+                color="var(--main-yellow)" >mdi-plus-box</v-icon>
+            </template>
+
+            <v-card>
+              <v-card-title class="grey lighten-2" style="font-family: var(--main-font);">
+                Add a review
+              </v-card-title>
+
+              <v-card-text>
+                <v-btn
+                v-if="!photoAdded"
+                depressed
+                color="var(--main-yellow)"
+                class="mt-3"
+                @click="photoAdded = true"
+                >
+                + Photo
+                </v-btn>
+
+                <v-container v-if="photoAdded">
+                <div style="padding: 1px 8px 8px 8px; border-radius: 5px; background-color: #E0E0E0;">
+                <v-img class="mt-4" src="@/assets/review.png"></v-img>
+                </div>
+
+                <v-row class="mt-4" style="margin-left: -3px;">
+                <h1 style="font-size: 20px;">Pesto Pasta</h1>
+                </v-row>
+                <v-row>
+                    <v-rating
+                    v-model="rating"
+                    background-color="amber lighten-3"
+                    style="margin-top: -5px; margin-left: -2px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+                    <v-textarea solo>
+                    </v-textarea>
+                </v-row>
+
+                <v-row class="mt-4" style="margin-left: -3px;">
+                <h1 style="font-size: 20px;">Fish Tacos</h1>
+                </v-row>
+                <v-row>
+                    <v-rating
+                    v-model="rating"
+                    background-color="amber lighten-3"
+                    style="margin-top: -5px; margin-left: -2px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+                    <v-textarea solo>
+                    </v-textarea>
+                </v-row>
+
+                <v-row class="mt-4" style="margin-left: -3px;">
+                <h1 style="font-size: 20px;">Caesar Salad</h1>
+                </v-row>
+                <v-row>
+                    <v-rating
+                    v-model="rating"
+                    background-color="amber lighten-3"
+                    style="margin-top: -5px; margin-left: -2px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+                    <v-textarea solo>
+                    </v-textarea>
+                </v-row>
+
+                <v-btn
+                color="var(--main-yellow)"
+            @click="dialogReview = false; submitted = true;"
+                >
+                Submit
+                </v-btn>
+                </v-container>
+              </v-card-text>
+            </v-card>
+          </v-dialog>
+        
+        </h1>
+
+        <div v-if="submitted">
+        <div class="review">
+            <h1>Pesto Pasta</h1>
+            <v-rating
+                    value="5"
+                    background-color="amber"
+                    style="margin-left: -10px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+            <p>Great!</p>
+            <v-img height="200px" width="200px" src="@/assets/pestopasta.png"></v-img>
+        </div>
+
+        <div class="review">
+            <h1>Fish Taco</h1>
+            <v-rating
+                    value="3"
+                    background-color="amber"
+                    style="margin-left: -10px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+            <p>Kind of bland</p>
+            <v-img height="200px" width="200px" src="@/assets/fishtaco.png"></v-img>
+        </div>
+
+
+<div class="review">
+            <h1>Caesar Salad</h1>
+            <v-rating
+                    value="2"
+                    background-color="amber"
+                    style="margin-left: -10px;"
+                    color="amber"
+                    half-increments
+                    
+                    ></v-rating>
+            <p>Too salty!</p>
+            <v-img height="200px" width="200px" src="@/assets/caesarsalad.png"></v-img>
+        </div>
+
+        </div>
+        
 
     </v-container>
   
@@ -108,6 +247,17 @@
 
     h1 {
         margin-top: 5px;
+    }
+}
+
+.review {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    h1 {
+        font-size: 20px;
     }
 }
 
@@ -133,6 +283,9 @@ export default {
 
   data() {
     return {
+      dialogReview: false,
+      photoAdded: false,
+      submitted: false,
       cafeterias: [
         {
           name: 'Crossroads',
