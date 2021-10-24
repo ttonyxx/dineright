@@ -29,7 +29,7 @@ export default {
         menuitem: "Chicken Breast",
         description: "Oven roasted chicken breast seasoned with traditional Texan spices",
         price: "$9.50"
-      },
+      }
     ],
   }),
 };
