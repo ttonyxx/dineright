@@ -1,4 +1,4 @@
-const serverOrigin = 'http://localhost:8080'
+const serverOrigin = 'http://10.142.114.103:8080'
 
 export function http(method, url, body) {
   if (!url.includes('http')) {

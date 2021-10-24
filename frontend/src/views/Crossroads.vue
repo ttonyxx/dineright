@@ -9,7 +9,8 @@
 
     <v-container>
         <v-btn block outlined color="indigo" v-if="!hereNow" @click="hereNow = true">I'm Here Right Now</v-btn>
-        <div v-if="hereNow">
+        <v-expand-transition>
+        <div v-if="hereNow" style="background-color: #F5F5F5; padding: 10px; border-radius: 10px;">
           <h2>How is it?</h2>
           <div style="display: flex;">
             <v-chip style="margin: 5px;">
@@ -20,6 +21,7 @@
             </v-chip>
           </div>
         </div>
+        </v-expand-transition>
         <h1 style="font-size: 25px;"><v-icon color="#2C3E50">mdi-chart-areaspline-variant</v-icon> Real-Time Stats</h1>
         
         <div id="stats">
@@ -88,6 +90,9 @@
         mdi-calendar
         </v-icon> Calendar</h1>
         <Calendar class="mt-3 mx-1"></Calendar>
+
+        <h1 class="mt-4" style="font-size: 25px;" ><v-icon color="#2C3E50">mdi-chart-areaspline-variant</v-icon> Live Wait Times
+        <v-img class="mt-3" src="@/assets/live_wait_time.png"></v-img></h1>
 
         <h1 class="mt-4" style="font-size: 25px;"><v-icon
         
@@ -233,6 +238,7 @@
         </div>
 
         </div>
+
         
 
     </v-container>

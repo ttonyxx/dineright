@@ -35,7 +35,7 @@ export default {
         if (res.success) {
           state.set('user', res.data);
           state.dispatch('user_set');
-          this.$router.push({ path: '/' });
+          this.$router.push({ path: '/student' });
         } else alert('Wrong username/password combination');
       }).catch(() => {
         alert('Encountered an while trying to validate username/password combination');
