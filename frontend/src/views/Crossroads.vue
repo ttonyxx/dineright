@@ -76,6 +76,21 @@
             </h1>
         </div>
 
+        <h1 class="mt-2" style="font-size: 25px;"><v-icon
+        
+        color="#2C3E50"
+        >
+        mdi-calendar
+        </v-icon> Calendar</h1>
+        <Calendar class="mt-3 mx-1"></Calendar>
+
+        <h1 class="mt-4" style="font-size: 25px;"><v-icon
+        
+        color="#2C3E50"
+        >
+        mdi-message-draw
+        </v-icon> Reviews</h1>
+
     </v-container>
   
   </div>
@@ -100,11 +115,13 @@
 
 <script>
 import StudentListItem from '@/components/StudentListItem'
+import Calendar from '@/components/Calendar'
 
 export default {
   name: 'Crossroads',
   components: {
-      StudentListItem
+      StudentListItem,
+      Calendar
   },
 
   created() {
