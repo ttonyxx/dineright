@@ -23,7 +23,10 @@
                     ></v-card-title>
 
                     <v-card-subtitle v-text="item.description" style="text-align: left;"></v-card-subtitle>
-                    <v-card-subtitle v-text="item.rating" style="text-align: center; background-color: #15284B; border-radius: 20px; max-width: 75px; margin-left: 10px; font-weight: Bold;"></v-card-subtitle>
+                    <div style="display: flex;">
+                      <v-card-subtitle v-text="item.rating" style="text-align: center; background-color: #15284B; border-radius: 20px; max-width: 75px; margin-left: 10px; font-weight: Bold;"></v-card-subtitle>
+                      <v-card-subtitle v-text="item.change" style="text-align: center; background-color: #15284B; border-radius: 20px; max-width: 150px; margin-left: 10px; font-weight: Bold;"></v-card-subtitle>
+                    </div>
 
                   </div>
                   <v-avatar class="ma-3" size="125" tile>

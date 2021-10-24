@@ -70,14 +70,16 @@ export default {
         src: "https://cleanfoodcrush.com/wp-content/uploads/2020/06/Clean-Food-Crush-Healthy-Recipes-Buffalo-Chicken-Salad.jpg",
         menuitem: "Buffalo Chicken Salad",
         description: "Tangy buffalo sauce topped on deep fried chicken",
-        rating: 8.5
+        rating: 8.5,
+        change: "\"good\""
       },
       {
         color: "#90ACE0",
         src: "https://hips.hearstapps.com/hmg-prod/images/grilled-chicken-horizontal-1532030541.jpg",
         menuitem: "Chicken Breast",
         description: "Oven roasted chicken breast seasoned with traditional Texan spices",
-        rating: 8.2
+        rating: 8.2,
+        change: "\"not bad\""
       },
     ],
     worst_items: [
@@ -86,14 +88,16 @@ export default {
         src: "https://www.aheadofthyme.com/wp-content/uploads/2016/03/farfalle-pasta-with-light-creamy-mushroom-rose-sauce-01.jpg",
         menuitem: "Rose Pasta",
         description: "Creamy rose pasta with tender mushrooms and farfalle pasta",
-        rating: 2.4
+        rating: 2.4,
+        change: "\"too creamy\""
       },
       {
         color: "#E37979",
         src: "https://ww2.kqed.org/app/uploads/sites/24/2016/08/IMG_8073.jpg",
         menuitem: "Dumplings",
         description: "Traditional dumplings with soft and chewy shells",
-        rating: 3.5
+        rating: 3.5,
+        change: "\"no flavor\""
       }
     ]
     }
