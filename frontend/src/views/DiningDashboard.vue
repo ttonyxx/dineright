@@ -1,7 +1,8 @@
 <template>
-  <div class="diningdashboard">
-    THIS IS the DINING DASHBOARD
-  </div>
+  <v-container class="diningdashboard">
+
+  
+  </v-container>
 </template>
 
 <script>
@@ -13,16 +14,16 @@ export default {
   },
 
   created() {
-    
   },
 
   watch: {
-
+      
   },
 
   data() {
     return {
       
+                
     }
   },
 

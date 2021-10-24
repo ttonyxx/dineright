@@ -47,6 +47,15 @@
           </v-list-item>
 
           <v-list-item>
+            <v-list-item-title><router-link class="link" to="/dining">DiningDashboard</router-link></v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title><router-link class="link" to="/test">TestPage</router-link></v-list-item-title>
+          </v-list-item>
+
+  
+          <v-list-item>
             <v-list-item-title><router-link class="link" to="/studentsignin">Sign In</router-link></v-list-item-title>
           </v-list-item>
 
