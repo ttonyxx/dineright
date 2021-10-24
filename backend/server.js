@@ -12,6 +12,16 @@ const db = new CockroachDB(CONNECTION_STRING);
 const app = express();
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Headers', 'content-type,authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  if (req.headers.origin)
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+
+  next();
+});
+
 app.post('/create-account', async (req, res) => {
   let { email, password, name } = req.body;
   if (!email || !password || !name) {
@@ -36,11 +46,14 @@ app.post('/valid-user', async (req, res) => {
 
   let r = await db.query('SELECT * FROM accounts WHERE email = $1 AND password = $2', [email, password]);
   if (r.rows.length !== 0) {
-    return res.send(responses.success());
+    return res.send(responses.success( r.rows[0] ));
   }
   return res.send(responses.error());
 });
 
+app.all('*', (_, res) => {
+  res.send({ success: false, error: 'not found' });
+});
 
 app.listen(8080, () => {
   console.log('Server has started!');

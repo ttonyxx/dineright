@@ -26,6 +26,8 @@
         >
           <v-list-item>
             <v-list-item-title><router-link to="/student">Dashboard</router-link></v-list-item-title>
+            <v-list-item-title><router-link to="/studentsignin">Sign In</router-link></v-list-item-title>
+            <v-list-item-title><router-link to="/studentsignup">Sign Up</router-link></v-list-item-title>
           </v-list-item>
 
 
