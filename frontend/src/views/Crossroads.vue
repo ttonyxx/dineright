@@ -89,6 +89,9 @@
         </v-icon> Calendar</h1>
         <Calendar class="mt-3 mx-1"></Calendar>
 
+        <h1 class="mt-4" style="font-size: 25px;" ><v-icon color="#2C3E50">mdi-chart-areaspline-variant</v-icon> Live Wait Times
+        <v-img class="mt-3" src="@/assets/live_wait_time.png"></v-img></h1>
+
         <h1 class="mt-4" style="font-size: 25px;"><v-icon
         
         color="#2C3E50"
@@ -233,6 +236,7 @@
         </div>
 
         </div>
+
         
 
     </v-container>
