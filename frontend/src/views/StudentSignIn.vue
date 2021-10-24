@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { post } from '@/utils';
+import { post, state } from '@/utils';
 
 export default {
   data() {
@@ -32,7 +32,13 @@ export default {
         email: this.email,
         password: this.password
       }).then(res => {
-        console.log(res);
+        if (res.success) {
+          state.set('user', res.data);
+          state.dispatch('user_set');
+          this.$router.push({ path: '/' });
+        } else alert('Wrong username/password combination');
+      }).catch(() => {
+        alert('Encountered an while trying to validate username/password combination');
       });
     }
   }

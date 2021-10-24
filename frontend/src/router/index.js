@@ -5,6 +5,7 @@ import StudentSignIn from '../views/StudentSignIn.vue'
 import StudentDashboard from '../views/StudentDashboard.vue'
 import DiningDashboard from '../views/DiningDashboard.vue'
 import StudentSignUp from '../views/StudentSignUp.vue'
+import Crossroads from '../views/Crossroads.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,10 @@ const routes = [
   {
     path: '/studentsignup',
     component: StudentSignUp
+  },
+  {
+    path: '/crossroads',
+    component: Crossroads
   },
   {
     path: '/about',

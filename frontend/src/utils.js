@@ -30,3 +30,30 @@ export function put(url, json) {
 export function httpDelete(url) {
   return http('DELETE', url, undefined)
 }
+
+class JankState {
+  constructor() {
+    this.state = {};
+    this.callbacks = {};
+  }
+
+  set(key, value) {
+    this.state[key] = value;
+  }
+
+  get(key) {
+    return this.state[key];
+  }
+
+  addCallback(name, func) {
+    this.callbacks[name] = func;
+  }
+
+  dispatch(name) {
+    if (this.callbacks[name]) {
+      this.callbacks[name]();
+    }
+  }
+}
+
+export const state = new JankState();
