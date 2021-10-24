@@ -32,7 +32,8 @@ app.post('/create-account', async (req, res) => {
   await db.insert('accounts', {
     email,
     name,
-    password
+    password,
+    profile_pic: 'https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png'
   });
 
   res.send(responses.success('Account created'));
