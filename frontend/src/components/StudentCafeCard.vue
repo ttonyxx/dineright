@@ -118,7 +118,7 @@
       </v-row>
       <v-row class="pl-3 pb-4 pt-2" style="height: 150px; overflow: scroll;">
           <div class="menu-item">
-            Terryaki<br>
+            Teriyaki<br>
             <v-img style="display: inline-block; border-radius: 5px;" height="80px" width="80px" src="@/assets/terryaki.jpg"></v-img>
           </div>
 

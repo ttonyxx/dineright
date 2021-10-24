@@ -13,10 +13,12 @@
         <img :src="user.profile_pic" style="border-radius: 50%; width: 40px;">
       </div>
     </v-app-bar> -->
-    <div style="height: 60px;">
+    <div style="height: 60px;"
+    v-if="$route.name != 'DiningDashboard'">
     <v-app-bar
       dark
       style="background: #90ACE0;"
+      v-if="$route.name != 'DiningDashboard'"
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
@@ -69,6 +71,7 @@
   --main-font: 'Poppins';
   --main-blue: #90ACE0;
   --main-yellow: #FCD47C;
+  --main-gray: #F9F9F9;
 }
 
 .mainfont {

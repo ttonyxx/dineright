@@ -8,19 +8,26 @@
     <h1 style="color: white; position: absolute; top: 100px; left: 10px;">{{ cafeteria.name }}</h1>
 
     <v-container>
-        <h1 style="font-size: 25px;"><v-icon
-        
-        color="#2C3E50"
-        >
-        mdi-chart-areaspline-variant
-        </v-icon> Real-Time Stats</h1>
+        <v-btn block outlined color="indigo" v-if="!hereNow" @click="hereNow = true">I'm Here Right Now</v-btn>
+        <div v-if="hereNow">
+          <h2>How is it?</h2>
+          <div style="display: flex;">
+            <v-chip style="margin: 5px;">
+              Crowded?
+            </v-chip>
+            <v-chip style="margin: 5px;">
+              Empty?
+            </v-chip>
+          </div>
+        </div>
+        <h1 style="font-size: 25px;"><v-icon color="#2C3E50">mdi-chart-areaspline-variant</v-icon> Real-Time Stats</h1>
         
         <div id="stats">
             <h1> Score: <v-chip color="green lighten-3"> {{ cafeteria.score }}</v-chip></h1>
 
-            <h1>People: <v-chip>{{ cafeteria.students.length }} <v-icon>mdi-account</v-icon></v-chip>
+          <h1>People: <v-chip>129 <v-icon>mdi-account</v-icon></v-chip>
             
-                <v-dialog
+          <v-dialog
             v-model="dialog"
             width="500"
           >
@@ -76,9 +83,7 @@
             </h1>
         </div>
 
-        <h1 class="mt-2" style="font-size: 25px;"><v-icon
-        
-        color="#2C3E50"
+        <h1 class="mt-2" style="font-size: 25px;"><v-icon color="#2C3E50"
         >
         mdi-calendar
         </v-icon> Calendar</h1>
@@ -286,12 +291,13 @@ export default {
       dialogReview: false,
       photoAdded: false,
       submitted: false,
+      hereNow: false,
       cafeterias: [
         {
           name: 'Crossroads',
           score: 8.9,
-          rating: 3.5,
-          numRatings: 5,
+          rating: 3.57,
+          numRatings: 54,
           recommended: true,
           photo: 'https://i2.wp.com/www.dailycal.org/assets/uploads/2016/11/patz_mikaelaRaphael_staff-900x580.jpg',
           students: [

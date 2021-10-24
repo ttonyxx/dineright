@@ -29,13 +29,23 @@ export default {
       
   },
 
+  mounted() {
+    setInterval(() => {
+      if (Math.random() < .2) {
+        this.cafeterias[0].numRatings += Math.floor((Math.random() * 2)) + 1;
+        let newV = (Math.random() * .2 - .1) + this.cafeterias[0].rating;
+        this.cafeterias[0].rating = Math.round(newV * 100) / 100;
+      }
+    }, 1000);
+  },
+
   data() {
     return {
       cafeterias: [
         {
           name: 'Crossroads',
           score: 8.9,
-          rating: 3.5,
+          rating: 3.51,
           numRatings: 54,
           recommended: true,
           photo: 'https://i2.wp.com/www.dailycal.org/assets/uploads/2016/11/patz_mikaelaRaphael_staff-900x580.jpg',
