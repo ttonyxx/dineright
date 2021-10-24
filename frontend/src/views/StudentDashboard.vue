@@ -32,7 +32,6 @@ export default {
         this.cafeterias[0].rating = Math.round(newV * 100) / 100;
       }
     }, 1000);
-    
   },
 
   data() {
