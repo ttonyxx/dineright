@@ -2,7 +2,7 @@
   <div>
   <v-card
     :loading="loading"
-    class="mx-auto my-12"
+    class="mx-auto mt-4"
     max-width="374"
     style="overflow: hidden;"
   >
@@ -16,10 +16,10 @@
 
     <v-img
       height="250"
-      src="https://i2.wp.com/www.dailycal.org/assets/uploads/2016/11/patz_mikaelaRaphael_staff-900x580.jpg"
+      :src="cafeteria.c.photo"
     ></v-img>
 
-    <v-card-title>CROSSROADS <v-chip class="ml-2" color="green lighten-3">8.9</v-chip></v-card-title>
+    <v-card-title>{{cafeteria.c.name}} <v-chip class="ml-2" color="green lighten-3">{{ cafeteria.c.score }}</v-chip></v-card-title>
 
     <v-card-text>
       <v-row
@@ -36,11 +36,12 @@
           text-color="white"
           ><div class="blink" style="height: 10px; width: 10px; border-radius: 50%; background-color: white;"></div>
           <div class="amber--text ml-1">
-            4.5 (54)
+            {{cafeteria.c.rating}} ({{cafeteria.c.numRatings}})
           </div>
           <v-rating
-            :value="4.5"
+            :value="cafeteria.c.rating"
             color="amber"
+            background-color="amber"
             dense
             half-increments
             readonly
@@ -55,17 +56,17 @@
             <template v-slot:activator="{ on, attrs }">
                 <v-chip v-bind="attrs"
                 v-on="on"
-                color="var(--main-yellow)">4 friends</v-chip>
+                color="var(--main-yellow)">{{cafeteria.c.students.length}} friends</v-chip>
             </template>
 
             <v-card>
               <v-card-title class="grey lighten-2" style="font-family: var(--main-font);">
-                <v-chip color="var(--main-yellow)" style="font-size: 18px; margin-right: 5px;">4 friends</v-chip> at Crossroads
+                <v-chip color="var(--main-yellow)" style="font-size: 18px; margin-right: 5px;">{{cafeteria.c.students.length}} friends</v-chip> at Crossroads
               </v-card-title>
 
               <v-card-text>
                 <v-list style="overflow: hidden;">
-                  <template v-for="(student, i) in students">
+                  <template v-for="(student, i) in cafeteria.c.students">
                   <v-divider
                     v-if="i !== 0"
                     :key="i"
@@ -83,8 +84,6 @@
       </v-row>
 
       <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
         column
       >
         <v-chip>10:30 AM - 2:30 PM</v-chip>
@@ -157,47 +156,20 @@ export default {
   },
 
   created() {
-    
   },
 
   watch: {
       
   },
 
+  props: {
+    cafeteria: {type: Object, required: true},
+  },
+
   data() {
     return {
       dialog: false,
-      students: [
-        {
-          uid: '21902i192j12',
-          first_name: 'Tony',
-          last_name: 'Xin',
-          photo: 'https://i.imgur.com/HkLY72h.jpg',
-          entered: '5:23PM'
-        },
-        {
-          uid: '21902ie3192j12',
-          first_name: 'Arjun',
-          last_name: 'Patrawala',
-          photo: 'https://media-exp1.licdn.com/dms/image/C5603AQHXCZAa5oapJw/profile-displayphoto-shrink_800_800/0/1517630723852?e=1640217600&v=beta&t=g8Hp_-MYGD-tzsiLiLlgQpKulhWppS8OZiKQIQgVmmE',
-          entered: '5:34PM',
-        },
-        {
-          uid: '21902i13292j12',
-          first_name: 'Chris',
-          last_name: 'Chou',
-          photo: 'https://media-exp1.licdn.com/dms/image/C4E03AQHbWNkBUotrfg/profile-displayphoto-shrink_800_800/0/1632698333471?e=1640217600&v=beta&t=vYqN7Da1uAMbxm8nOJP0rTKRrx1LW4dZW_Vao17gfXc',
-          entered: '5:45PM'
-        },
-        {
-          uid: '21902i1a3292j12',
-          first_name: 'Caleb',
-          last_name: 'Kim',
-          photo: 'https://media-exp1.licdn.com/dms/image/C5603AQFwp44-wj76vw/profile-displayphoto-shrink_800_800/0/1633849143227?e=1640217600&v=beta&t=S85BMzOaqFub7TaefH3-kUmQS2o5lbAFsPCedjUSKZg',
-          entered: '5:47PM'
-        },
-
-      ]
+      
     }
   },
 
